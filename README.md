@@ -1,5 +1,5 @@
 ---
-title: Git/GitHub 3 : Remote
+title: "Git/GitHub 3 : Remote"
 description: Partager ses dépôts à l'aide de dépôts distants comme ceux proposés par GitHub
 show_toc: true
 ---
@@ -98,18 +98,16 @@ Suit uniquement l'étape 2 (**Step 2 - Authentication**) de la documentation ci-
 [https://blog.devgenius.io/getting-started-with-the-github-cli-2a723585e368#552e](https://blog.devgenius.io/getting-started-with-the-github-cli-2a723585e368#552e)
 {:.alert-info}
 
-````xtext arrow
-Si ça ne marche pas, la documentation de GitHub te donne des instructions pour configurer à la main ta clé SSH, dans les sections "Generating a new SSH key" et "Adding your SSH key to the ssh-agent". Tu n'as **pas besoin de suivre** cette ressource si tu as configuré la clé via Github CLI.
-
-**[Alternative] Tutoriel sur GitHub pour la création d'une paire de clés SSH à la main**
-
-[https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+> #### 💡 Alternative
+> Si ça ne marche pas, la documentation de GitHub te donne des instructions pour configurer à la main ta clé SSH, dans les sections "Generating a new SSH key" et "Adding your SSH key to the ssh-agent". Tu n'as **pas besoin de suivre** cette ressource si tu as configuré la clé via Github CLI.
+>
+> **[Alternative] Tutoriel sur GitHub pour la création d'une paire de clés SSH à la main**
+>
+> [https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 {:.alert-info}
-````
 
-```alert-info
 Tu peux enregistrer plusieurs clés SSH sur ton compte GitHub. Par exemple, si tu utilises git et GitHub sur plusieurs machines différentes, alors il te faudra répéter ces instructions sur chacun de tes ordinateurs, afin qu'ils aient tous leurs propre clés SSH liées à ton compte GitHub.
-```
+{:.alert-info}
 
 # Paramétrage d'un dépôt distant
 
@@ -119,20 +117,19 @@ Pour envoyer ton travail à un dépôt distant (*remote*), tu dois d'abord infor
 git remote add origin <REMOTE_URL>
 ```
 
-````xtext arrow
-Dans cette commande, "origin" est ton nom de dépôt distant et est associé à une URL. C'est un nom conventionnel comme un autre, mais nous aurions très bien pu en choisir un autre.
-
-Pour `<REMOTE_URL>`, chaque dépôt GitHub possède en réalité deux types d'adresses, une HTTPS et une SSH. Tu peux les retrouver en cliquant sur le bouton vert "Code", comme indiqué sur la capture ci-dessous
-
-![where to find ssh url in GitHub](images/ssh-url-github.png)
-
-Même si c'est l'adresse en HTTPS apparait en premier, tu ne l'utiliseras pas ! Tu dois cliquer sur SSH et utiliser l'adresse commençant par git@github... c'est elle qui est compatible avec la configuration de la clé SSH que tu as fais dans l'étape précédente.
-
-**Authentification SSH**
-
-[https://www.ssh.com/ssh/public-key-authentication](https://www.ssh.com/ssh/public-key-authentication)
+> #### 💡 Explication
+> Dans cette commande, "origin" est ton nom de dépôt distant et est associé à une URL. C'est un nom conventionnel comme un autre, mais nous aurions très bien pu en choisir un autre.
+>
+> Pour `<REMOTE_URL>`, chaque dépôt GitHub possède en réalité deux types d'adresses, une HTTPS et une SSH. Tu peux les retrouver en cliquant sur le bouton vert "Code", comme indiqué sur la capture ci-dessous
+>
+> ![where to find ssh url in GitHub](images/ssh-url-github.png)
+>
+> Même si c'est l'adresse en HTTPS apparait en premier, tu ne l'utiliseras pas ! Tu dois cliquer sur SSH et utiliser l'adresse commençant par git@github... c'est elle qui est compatible avec la configuration de la clé SSH que tu as fais dans l'étape précédente.
+>
+> **Authentification SSH**
+>
+> [https://www.ssh.com/ssh/public-key-authentication](https://www.ssh.com/ssh/public-key-authentication)
 {:.alert-info}
-````
 
 Voilà ! Ton dépôt à distance est lié à ton dépôt local (pour fetch et push). Tu peux le vérifier en exécutant la commande suivante à tout moment.
 
@@ -197,9 +194,7 @@ Si tu ajoutes un dossier dans la ligne de commande (c'est facultatif), tu récup
 
 Une courte vidéo pour résumer :
 
-```youtube
-https://www.youtube.com/watch?v=s6KTbytdNgs
-```
+[Voir la vidéo YouTube](https://www.youtube.com/watch?v=s6KTbytdNgs)
 
 # En résumé
 
