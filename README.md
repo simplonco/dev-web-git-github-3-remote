@@ -4,20 +4,18 @@ description: Partager ses dépôts à l'aide de dépôts distants comme ceux pro
 show_toc: true
 ---
 
-# Avant de commencer
 
-```alert-warning
-Bon à savoir : Tu auras besoin du projet créé lors de la ressource précédente pour poursuivre ton aventure.
-
-[Voir la ressource "Git/GitHub 2 : Git en local"](https://simplonco.github.io/dev-web-git-github-2-git-en-local/)
-```
+># Pré-requis
+>Tu auras besoin du projet créé lors de la ressource précédente pour poursuivre ton aventure.
+>
+>[Voir la ressource "Git/GitHub 2 : Git en local"](https://simplonco.github.io/dev-web-git-github-2-git-en-local/)
+{:.alert-warning}
 
 # Introduction
 Jusqu'à présent, tu as créé un fichier et apporté des modifications que tu as enregistrées localement avec git. En d'autres termes, ton chef-d'œuvre de programmation est, pour le moment, seulement accessible par le biais de ton ordinateur.
 
-```alert-info
 En 2020, Git, Github ainsi que d'autres acteurs du monde informatique ont décidé de remplacer tous les termes pouvant être associés à de la discrimination raciale de leurs terminologies : *master, whitelist/blacklist, etc*. Il est donc possible dans certaines ressources que le mot "master", soit utilisé au lieu de "main". Cela ne change rien au fonctionnement. Cela demande juste un peu de gymnastique cérébrale. 🤸
-```
+{:.alert-info}
 
 ## Objectifs
 
@@ -25,17 +23,8 @@ En 2020, Git, Github ainsi que d'autres acteurs du monde informatique ont décid
 * ✅ Relier un dépôt distant à son dépôt local
 * ✅ Connaître et comprendre les commandes de base liées aux dépôts distants telles que : clone, remote, push, pull, fetch, merge
 
-## Contenu de la ressource
 
-* Le dépôt distant
-* La connexion SSH
-* Les URL de dépôts
-* Paramétrage d'un dépôt distant
-* Envoyer du code vers ton dépôt distant
-* Récupérer du code depuis le dépôt distant
-* Cloner un dépôt
-
-# Le dépôt distant
+## Le dépôt distant
 
 Un dépôt distant est un dépôt git (repository) qui n'est pas sur ton ordinateur.
 
@@ -54,7 +43,7 @@ Il existe plusieurs plateformes pour l'hébergement de tes travaux à distance, 
 
 Tu peux également créer ton propre serveur git avec ou sans interface d'administration web (ce que nous ne ferons pas dans la ressource).
 
-# Avant toute chose : la connexion SSH
+## Avant toute chose : la connexion SSH
 
 GitHub a récemment modifié sa politique concernant les questions de sécurité. Ainsi, depuis le 13 août 2021, il est obligatoire d'utiliser une authentification de type "SSH" lors de l'utilisation de git en coordination avec GitHub.
 
@@ -65,29 +54,32 @@ La page WikipediA sur [SSH](https://fr.wikipedia.org/wiki/Secure_Shell) permet d
 
 Pour cela, tu dois donc en premier lieu créer une paire de clés SSH. Tu peux le faire "à la main", mais pour simplifier la configuration, Github te propose une solution pratique, via l'utilisation de Github CLI (un outil en ligne de commande propre à Github, à ne pas confondre avec git !). Github CLI permet de faire beaucoup de chose depuis ton terminal, notamment de configurer la clé SSH.
 
-```alert-warning
 Attention de bien suivre les étapes en fonction de votre système d'exploitation.
-```
+{:.alert-warning}
 
 ### Installation de Github CLI
 
-````tabs
-!--- Ubuntu
+<details markdown="1">
+<summary>Ubuntu</summary>
 Tape simplement cette commande
 ```sh
 sudo apt install gh
 ```
+</details>
 
-!--- Mac OS
+<details markdown="1">
+<summary>Mac OS</summary>
 Tape simplement cette commande
 ```sh
 brew install gh
 ```
+</details>
 
-!--- Windows
-Va sur la page https://github.com/cli/cli/releases/
+<details markdown="1">
+<summary>Windows</summary>
+Va sur la page [https://github.com/cli/cli/releases/](https://github.com/cli/cli/releases/).  
 Dans la catégoie "Assets", télécharge le "windows amd64 installer" (tu devras peut-être cliquer sur "Afficher tous les assets" pour le trouver) et exécute le.
-````
+</details>
 
 ### Configuration de la clé SSH via github CLI
 
@@ -109,7 +101,7 @@ Suit uniquement l'étape 2 (**Step 2 - Authentication**) de la documentation ci-
 Tu peux enregistrer plusieurs clés SSH sur ton compte GitHub. Par exemple, si tu utilises git et GitHub sur plusieurs machines différentes, alors il te faudra répéter ces instructions sur chacun de tes ordinateurs, afin qu'ils aient tous leurs propre clés SSH liées à ton compte GitHub.
 {:.alert-info}
 
-# Paramétrage d'un dépôt distant
+## Paramétrage d'un dépôt distant
 
 Pour envoyer ton travail à un dépôt distant (*remote*), tu dois d'abord informer ton dépôt local de l'existence du dépôt distant.
 
@@ -142,7 +134,7 @@ git remote -v
 * **Fetch** : Pour récupérer ton travail du dépôt distant vers le local.
 * **Push** : Pour envoyer ton travail du local vers le distant.
 
-# Envoyer du code vers ton dépôt distant
+## Envoyer du code vers ton dépôt distant
 
 Pour envoyer du code vers le dépôt distant, on utilise la commande *push*.
 
@@ -156,7 +148,7 @@ Dans cette commande, `origin` est le lien vers le dépôt distant. `main` est ic
 
 Pas d'inquiétude, tu découvriras le concept de **branches** dans la ressource suivante. Pour le moment, tu peux considérer une branche comme un ensemble de lignes de code (d'un même thème). Une branche possède un nom unique et "main" est la branche par défaut.
 
-# Récupérer du code depuis le dépôt distant
+## Récupérer du code depuis le dépôt distant
 
 Si ton dépôt à distance comporte des modifications et que tu souhaites les récupérer en local, tu utiliseras la commande *pull*.
 
@@ -180,7 +172,7 @@ Il est important de comprendre que tu as une copie des deux branches (distante e
 
 Git ne fonctionne que localement, tu dois donc lui demander de fusionner la branche distante nommée *main* de *origin* avec la branche locale sur laquelle tu es *main*.
 
-# Cloner un dépôt
+## Cloner un dépôt
 
 Si tu as déjà un dépôt distant (un projet existant qui comprend un peu de code), tu peux récupérer le projet localement avec la commande *clone* :
 
@@ -196,7 +188,7 @@ Une courte vidéo pour résumer :
 
 [Voir la vidéo YouTube](https://www.youtube.com/watch?v=s6KTbytdNgs)
 
-# En résumé
+## En résumé
 
 * Un dépôt distant est un dépôt git hébergé sur Internet.
 * Tu peux envoyer tes changements locaux sur ton dépôt distant avec la commande *push*.
@@ -205,16 +197,14 @@ Une courte vidéo pour résumer :
 
 - - -
 
-# Quiz
+## Quiz
 
 {% capture quiz_data %}
 [{"question": "La notion de dépôt distant (remote) n'existe que sur GitHub ?", "options": ["Vrai", "Faux"], "correct": 1}, {"question": "Quelle commande git permet de s'assurer que son dépôt local est à jour ?", "options": ["git pull", "git push", "git remote", "git clone", "git fetch & git merge"], "correct": [0, 4]}, {"question": "Comment créer un dépôt local à partir d'un dépôt distant ?", "options": ["git init <REMOTE_URL>", "git clone <REMOTE_URL>", "git pull <REMOTE_URL>"], "correct": 1}, {"question": "Quelle commande permet de récupérer les URL des dépôts distants configurés sur un dépôt local ?", "options": ["git remote -v", "git status", "git list <REMOTE_URL>"], "correct": 0}]
 {% endcapture %}
 {% include quiz.html data=quiz_data %}
 
-- - -
-
-# 💪 Challenge
+## 💪 Challenge
 
 1. Crée un nouveau dépôt nommé "my-awesome-project" sur GitHub (coche "Initialiser ce dépôt avec un README").
 2. Clone ce dépôt sur ton ordinateur à partir du lien SSH dans GitHub
@@ -222,9 +212,4 @@ Une courte vidéo pour résumer :
 4. Récupère les modifications distantes sur ton projet local
 5. Modifie sur ton ordinateur le fichier README en ajoutant une section appelée *achievements*. Remplis-la avec le texte "J'ai réussi à faire clone, pull et je m'apprête à faire push".
 6. En utilisant le terminal, envoie (*push*) tes modifications vers le dépôt distant.
-7. Partage le lien du dépôt distant en solution à ce défi.
 
-# 🧐 Critères de validation
-
-* [ ] Le dépôt distant contient un fichier README.md
-* [ ] Ce fichier a été modifié par au moins 2 commits
